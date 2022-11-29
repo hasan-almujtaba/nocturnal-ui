@@ -1,0 +1,29 @@
+{
+	"env": {
+		"jest": true
+	},
+	"parser": "vue-eslint-parser",
+	"parserOptions": {
+		"parser": "@typescript-eslint/parser",
+		"sourceType": "module"
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:vue/vue3-recommended",
+		"plugin:unicorn/recommended",
+		"prettier"
+	],
+	"rules": {
+		"unicorn/prevent-abbreviations": [
+			"error",
+			{ "allowList": { "props": true } }
+		]
+	},
+	"ignorePatterns": [
+		"**/*.config.cjs",
+		"**/*.config.js",
+		"**/*.config.ts",
+		"**/*/*.d.ts"
+	]
+}

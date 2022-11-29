@@ -1,0 +1,13 @@
+{
+	"recommendations": [
+		"editorconfig.editorconfig",
+		"vue.volar",
+		"vue.vscode-typescript-vue-plugin",
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"cpylua.language-postcss",
+		"redhat.vscode-yaml",
+		"streetsidesoftware.code-spell-checker",
+		"wayou.vscode-todo-highlight"
+	]
+}

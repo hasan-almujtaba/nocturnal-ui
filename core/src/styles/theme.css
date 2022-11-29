@@ -1,0 +1,11 @@
+html {
+	--primary: var(--primary-light);
+	--secondary: var(--secondary-light);
+	--tertiary: var(--tertiary-light);
+}
+
+html.dark {
+	--primary: var(--primary-dark);
+	--secondary: var(--secondary-dark);
+	--tertiary: var(--tertiary-dark);
+}
