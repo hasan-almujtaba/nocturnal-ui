@@ -1,8 +1,12 @@
 {
 	"extends": "../tsconfig.json",
 	"compilerOptions": {
+		"baseUrl": ".",
 		"declaration": true,
-		"outDir": "./dist/types"
+		"outDir": "./dist/types",
+		"paths": {
+			"~/*": ["src/*"]
+		}
 	},
 	"include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
 	"exclude": ["src/vite-env.d.ts"]
