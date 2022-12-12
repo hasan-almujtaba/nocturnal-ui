@@ -1,0 +1,81 @@
+$themes: (
+	light: (
+		primary: $primary-light,
+		on-primary: $on-primary-light,
+		primary-container: $primary-container-light,
+		on-primary-container: $on-primary-container-light,
+		secondary: $secondary-light,
+		on-secondary: $on-secondary-light,
+		secondary-container: $secondary-container-light,
+		on-secondary-container: $on-secondary-container-light,
+		tertiary: $tertiary-light,
+		on-tertiary: $on-tertiary-light,
+		tertiary-container: $tertiary-container-light,
+		on-tertiary-container: $on-tertiary-container-light,
+		error: $error-light,
+		on-error: $on-error-light,
+		error-container: $error-container-light,
+		on-error-container: $on-error-container-light,
+		outline: $outline-light,
+		background: $background-light,
+		surface: $surface-light,
+		surface-variant: $surface-variant-light,
+		on-surface-variant: $on-surface-variant-light,
+		inverse-surface: $inverse-surface-light,
+		inverse-on-surface: $inverse-on-surface-light,
+		inverse-primary: $inverse-primary-light,
+		shadow: $shadow-light,
+		surface-tint: $surface-tint-light,
+		outline-variant: $outline-variant-light,
+		scrim: $scrim-light,
+	),
+	dark: (
+		primary: $primary-dark,
+		on-primary: $on-primary-dark,
+		primary-container: $primary-container-dark,
+		on-primary-container: $on-primary-container-dark,
+		secondary: $secondary-dark,
+		on-secondary: $on-secondary-dark,
+		secondary-container: $secondary-container-dark,
+		on-secondary-container: $on-secondary-container-dark,
+		tertiary: $tertiary-dark,
+		on-tertiary: $on-tertiary-dark,
+		tertiary-container: $tertiary-container-dark,
+		on-tertiary-container: $on-tertiary-container-dark,
+		error: $error-dark,
+		on-error: $on-error-dark,
+		error-container: $error-container-dark,
+		on-error-container: $on-error-container-dark,
+		outline: $outline-dark,
+		background: $background-dark,
+		surface: $surface-dark,
+		surface-variant: $surface-variant-dark,
+		on-surface-variant: $on-surface-variant-dark,
+		inverse-surface: $inverse-surface-dark,
+		inverse-on-surface: $inverse-on-surface-dark,
+		inverse-primary: $inverse-primary-dark,
+		shadow: $shadow-dark,
+		surface-tint: $surface-tint-dark,
+		outline-variant: $outline-variant-dark,
+		scrim: $scrim-dark,
+	),
+);
+
+@mixin styles($mode) {
+	@each $key, $map in $themes {
+		@each $prop, $color in $map {
+			@if $key == $mode {
+				--#{$prop}: #{$color};
+				--#{$prop}-rgb: #{red($color)}, #{green($color)}, #{blue($color)};
+			}
+		}
+	}
+}
+
+html {
+	@include styles('light');
+}
+
+html.dark {
+	@include styles('dark');
+}

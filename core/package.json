@@ -33,6 +33,7 @@
     "autoprefixer": "^10.4.13",
     "jsdom": "^20.0.1",
     "postcss-nested": "^6.0.0",
+    "sass": "^1.56.2",
     "standard-version": "^9.5.0",
     "watch": "^1.0.2"
   }
