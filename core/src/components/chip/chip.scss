@@ -1,0 +1,93 @@
+$chip-color: 'primary', 'secondary', 'tertiary', 'error';
+
+.chip {
+	display: inline-flex;
+	align-items: center;
+	border-radius: 8px;
+	border: 1px solid var(--outline);
+	padding: 6px 12px;
+	box-sizing: border-box;
+	color: var(--on-surface);
+	position: relative;
+	height: 32px;
+	gap: 0 8px;
+	transition: color 0.2s, background-color 0.2s;
+
+	&__label {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+	&__leading-icon {
+		display: flex;
+		align-items: center;
+	}
+
+	&__trailing-icon {
+		display: flex;
+		background-color: transparent;
+		color: inherit;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		z-index: 10;
+	}
+
+	&--disabled {
+		opacity: 0.38;
+		border: none;
+		pointer-events: none;
+	}
+
+	@each $color in $chip-color {
+		&--#{$color} {
+			background-color: var(--#{$color}-container);
+			color: var(--on-#{$color}-container);
+
+			&.chip--selected {
+				background-color: var(--#{$color});
+				color: var(--on-#{$color});
+			}
+		}
+	}
+
+	&--with-leading-icon {
+		padding-left: 8px;
+	}
+
+	&--with-trailing-icon {
+		padding-right: 8px;
+	}
+
+	&--clickable {
+		cursor: pointer;
+		user-select: none;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border-radius: inherit;
+		background-color: currentColor;
+		opacity: 0;
+	}
+
+	&:not(.chip--disabled) {
+		&:hover {
+			&::after {
+				opacity: 0.08;
+			}
+		}
+
+		&:active {
+			&::after {
+				opacity: 0.12;
+			}
+		}
+	}
+}

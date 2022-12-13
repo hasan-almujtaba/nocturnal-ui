@@ -35,7 +35,9 @@
 				</span>
 			</Transition>
 
-			<slot />
+			<span class="chip__label">
+				<slot />
+			</span>
 
 			<button
 				v-if="props.closable && !props.disabled"
@@ -83,6 +85,9 @@ const props = withDefaults(
 		 * Set chip style to selected state
 		 */
 		selected?: boolean
+		/**
+		 * Disabled state of the component
+		 */
 		disabled?: boolean
 	}>(),
 	{
@@ -109,118 +114,3 @@ const show = ref(true)
 
 const onCloseButtonClick = () => (show.value = false)
 </script>
-
-<style lang="postcss">
-.chip {
-	display: inline-flex;
-	align-items: center;
-	border-radius: 0.5rem;
-	border: 0.0625rem solid var(--outline);
-	padding: 0.375rem 0.75rem;
-	font-weight: 500;
-	font-size: 0.875rem;
-	line-height: 1.25rem;
-	color: var(--on-surface);
-	position: relative;
-	height: 2rem;
-
-	&::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		border-radius: inherit;
-		background-color: currentColor;
-		opacity: 0;
-	}
-
-	&:not(.checkbox--disabled) {
-		&:hover {
-			&::after {
-				opacity: 0.08;
-			}
-		}
-
-		&:active {
-			&::after {
-				opacity: 0.12;
-			}
-		}
-	}
-
-	&--disabled {
-		opacity: 0.38;
-		border: none;
-		pointer-events: none;
-	}
-
-	&--primary {
-		background-color: var(--primary-container);
-		color: var(--on-primary-container);
-
-		&.chip--selected {
-			background-color: var(--primary);
-			color: var(--on-primary);
-		}
-	}
-
-	&--secondary {
-		background-color: var(--secondary-container);
-		color: var(--on-secondary-container);
-
-		&.chip--selected {
-			background-color: var(--secondary);
-			color: var(--on-secondary);
-		}
-	}
-
-	&--tertiary {
-		background-color: var(--tertiary-container);
-		color: var(--on-tertiary-container);
-
-		&.chip--selected {
-			background-color: var(--tertiary);
-			color: var(--on-tertiary);
-		}
-	}
-
-	&--error {
-		background-color: var(--error-container);
-		color: var(--on-error-container);
-
-		&.chip--selected {
-			background-color: var(--error);
-			color: var(--on-error);
-		}
-	}
-
-	&__leading-icon {
-		margin-right: 8px;
-	}
-
-	&__trailing-icon {
-		background-color: transparent;
-		color: inherit;
-		border: none;
-		padding: 0;
-		margin-left: 8px;
-		cursor: pointer;
-		z-index: 10;
-	}
-
-	&--with-leading-icon {
-		padding-left: 8px;
-	}
-
-	&--with-trailing-icon {
-		padding-right: 8px;
-	}
-
-	&--clickable {
-		cursor: pointer;
-		user-select: none;
-	}
-}
-</style>
