@@ -92,38 +92,3 @@ const containerStyles = computed(() => ({
 	maxWidth: props.maxWidth,
 }))
 </script>
-
-<style lang="postcss">
-.card {
-	box-sizing: border-box;
-	background-color: var(--surface);
-	color: var(--on-surface);
-	border-radius: 12px;
-
-	&--outlined {
-		border: 1px solid var(--outline-variant);
-	}
-
-	&--elevated {
-		box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
-			0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-	}
-
-	&--filled {
-		background-color: var(--surface-variant);
-		color: var(--on-surface-variant);
-	}
-
-	&__header,
-	&__text,
-	&__actions {
-		padding: 16px;
-	}
-
-	&__header,
-	&__actions {
-		display: flex;
-		gap: 8px;
-	}
-}
-</style>
