@@ -19,6 +19,7 @@ $themes: (
 		outline: $outline-light,
 		background: $background-light,
 		surface: $surface-light,
+		on-surface: $on-surface-light,
 		surface-variant: $surface-variant-light,
 		on-surface-variant: $on-surface-variant-light,
 		inverse-surface: $inverse-surface-light,
@@ -49,6 +50,7 @@ $themes: (
 		outline: $outline-dark,
 		background: $background-dark,
 		surface: $surface-dark,
+		on-surface: $on-surface-dark,
 		surface-variant: $surface-variant-dark,
 		on-surface-variant: $on-surface-variant-dark,
 		inverse-surface: $inverse-surface-dark,
@@ -70,6 +72,10 @@ $themes: (
 			}
 		}
 	}
+}
+
+* {
+	font-family: 'Roboto', sans-serif;
 }
 
 html {
