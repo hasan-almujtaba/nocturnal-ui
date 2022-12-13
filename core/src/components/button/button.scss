@@ -1,0 +1,200 @@
+$button-variant: 'filled', 'outlined', 'text', 'elevated', 'tonal';
+$button-color: 'primary', 'secondary', 'tertiary', 'error';
+
+.btn {
+	height: 40px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0 8px;
+	font-size: 14px;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	border-radius: 100px;
+	font-weight: 500;
+	letter-spacing: 0.1px;
+	text-transform: capitalize;
+	box-sizing: border-box;
+	overflow: hidden;
+	vertical-align: middle;
+	border: none;
+	padding-left: 24px;
+	padding-right: 24px;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: currentColor;
+		opacity: 0;
+		border-radius: inherit;
+		transition: opacity 0.2s;
+	}
+
+	&:disabled {
+		cursor: default;
+		pointer-events: none;
+		color: rgba(var(--on-surface-rgb), 0.38);
+
+		&.btn--filed,
+		&.btn--elevated,
+		&.btn--tonal {
+			background-color: rgba(var(--on-surface-rgb), 0.12);
+		}
+
+		&.btn--outlined {
+			border: 1px solid rgba(var(--on-surface-rgb), 0.12);
+		}
+
+		&.btn--elevated {
+			box-shadow: none;
+		}
+	}
+
+	&:hover {
+		&::after {
+			opacity: 0.08;
+		}
+	}
+
+	&:active {
+		&::after {
+			opacity: 0.12;
+		}
+	}
+
+	& .btn__loader {
+		background-color: var(--surface);
+	}
+
+	& .loader {
+		border-color: currentColor;
+		border-bottom-color: transparent;
+	}
+
+	&__label {
+		flex: 1 1 auto;
+	}
+
+	&--loading {
+		pointer-events: none;
+		cursor: default;
+	}
+
+	&__loader {
+		position: absolute;
+		border-radius: inherit;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&--with-left-icon {
+		padding-left: 16px;
+	}
+
+	&--with-right-icon {
+		padding-right: 16px;
+	}
+
+	&--block {
+		display: flex;
+		width: 100%;
+	}
+
+	@each $variant in $button-variant {
+		&--#{$variant} {
+			@if $variant == 'filled' {
+				transition: box-shadow 0.2s;
+
+				&:hover {
+					box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
+						0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+				}
+
+				&:active {
+					box-shadow: none;
+				}
+			}
+
+			@if $variant == 'filled' or $variant == 'tonal' {
+				& .btn__loader {
+					background-color: inherit;
+				}
+			}
+
+			@if $variant == 'outlined' {
+				background-color: transparent;
+				border: 1px solid currentColor;
+			}
+
+			@if $variant == 'text' {
+				background-color: transparent;
+			}
+
+			@if $variant == 'elevated' {
+				transition: box-shadow 0.2s;
+				background-color: var(--surface);
+				box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
+					0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+
+				&:hover {
+					box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
+						0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+				}
+
+				&:active {
+					box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
+						0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+				}
+			}
+
+			@if $variant == 'tonal' {
+				transition: box-shadow 0.2s;
+
+				&:hover {
+					box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
+						0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+				}
+
+				&:active {
+					box-shadow: none;
+				}
+			}
+
+			&:not([disabled]) {
+				@each $color in $button-color {
+					&.btn--#{$color} {
+						@if $variant == 'filled' {
+							background-color: var(--#{$color});
+							color: var(--on-#{$color});
+						}
+
+						@if $variant ==
+							'outlined' or
+							$variant ==
+							'text' or
+							$variant ==
+							'elevated'
+						{
+							color: var(--#{$color});
+						}
+
+						@if $variant == 'tonal' {
+							background-color: var(--#{$color}-container);
+							color: var(--on-#{$color}-container);
+						}
+					}
+				}
+			}
+		}
+	}
+}
