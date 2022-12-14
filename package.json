@@ -15,7 +15,8 @@
     "docs:dev": "pnpm --filter docs dev",
     "docs:build": "pnpm --filter docs build",
     "docs:serve": "pnpm --filter docs serve",
-    "prepare": "husky install"
+    "prepare": "husky install",
+		"dev": "concurrently \"pnpm watch:core\" \"pnpm dev:play\""
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^3.2.0",
@@ -26,6 +27,7 @@
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
     "@vue/test-utils": "^2.2.0",
+    "concurrently": "^7.6.0",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-unicorn": "^45.0.1",
