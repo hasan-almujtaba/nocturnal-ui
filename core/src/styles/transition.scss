@@ -7,3 +7,14 @@
 .fade-leave-to {
 	opacity: 0;
 }
+
+.scale-in-enter-active,
+.scale-in-leave-active {
+	transition: transform 0.25s, opacity 0.25s;
+}
+
+.scale-in-enter-from,
+.scale-in-leave-to {
+	transform: scale(0.88);
+	opacity: 0;
+}
