@@ -1,0 +1,13 @@
+{
+	"name": "vite-plugin-executor",
+	"type": "module",
+	"scripts": {
+		"init": "tsc --init",
+		"build": "tsc"
+	},
+	"main": "dist/index.js",
+  "types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	]
+}

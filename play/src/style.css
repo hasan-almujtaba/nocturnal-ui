@@ -15,6 +15,19 @@
 	-webkit-text-size-adjust: 100%;
 }
 
+html.dark {
+	background-color: #1c1b1f;
+}
+
+.flex {
+	display: flex;
+	gap: 5px;
+}
+
+.jb {
+	justify-content: space-between;
+}
+
 a {
 	font-weight: 500;
 	color: #646cff;
@@ -41,7 +54,6 @@ h1 {
 	max-width: 1280px;
 	margin: 0 auto;
 	padding: 2rem;
-	text-align: center;
 }
 
 @media (prefers-color-scheme: light) {

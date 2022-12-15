@@ -1,5 +1,6 @@
 import { App } from 'vue'
-import './styles/index.css'
+// import './styles/index.css'
+import './styles/index.scss'
 
 /**
  * Install component as plugin

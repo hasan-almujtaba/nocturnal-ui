@@ -1,10 +1,16 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path, { resolve } from 'path'
-import dts from '../plugins/vite-plugin-dts-generator'
+import executor from 'vite-plugin-executor'
 
 export default defineConfig({
-	plugins: [vue(), dts()],
+	plugins: [
+		vue(),
+		executor({
+			runOn: 'end',
+			script: 'vue-tsc --emitDeclarationOnly',
+		}),
+	],
 	resolve: {
 		alias: {
 			'~/': `${path.resolve(__dirname, 'src')}/`,
@@ -16,6 +22,7 @@ export default defineConfig({
 			name: 'Nocturnal',
 			fileName: (format) => `nocturnal.${format}.js`,
 		},
+		cssCodeSplit: true,
 		rollupOptions: {
 			external: ['vue'],
 			output: {
