@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import process from 'node:process'
+import { toPascalCase } from '../utils/case-converter'
 
 const generateDeclaration = () => {
 	const root = process.cwd()
@@ -9,7 +10,7 @@ const generateDeclaration = () => {
 	const components = fs
 		.readdirSync(readPath, { withFileTypes: true })
 		.filter((dirent) => dirent.isDirectory())
-		.map((dirent) => `Nx${dirent.name[0].toUpperCase()}${dirent.name.slice(1)}`)
+		.map((dirent) => `Nx${toPascalCase(dirent.name)}`)
 
 	const content = `//Global Components
 declare module '@vue/runtime-core' {

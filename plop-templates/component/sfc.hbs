@@ -1,0 +1,28 @@
+<template>
+	
+</template>
+
+<script lang="ts">
+export default {
+	name: 'Nx{{pascalCase name}}',
+}
+</script>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const props = withDefaults(
+	defineProps<{}>(),
+	{}
+)
+
+/**
+ * Main css classes
+ */
+const cssClasses = computed(() => [
+	'{{name}}',
+])
+</script>
+
+
+
