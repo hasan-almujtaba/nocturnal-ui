@@ -16,6 +16,7 @@ const install = function (app: App) {
 	})
 
 	for (const key in components) {
+		console.log(components[key])
 		// @ts-expect-error: component name will be provided manually
 		app.component(components[key].default.name, components[key].default)
 	}

@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+		"global.d.ts"
   ],
   "main": "./dist/nocturnal.umd.js",
   "module": "./dist/nocturnal.es.js",
@@ -17,7 +18,8 @@
       "require": "./dist/style.css"
     }
   },
-  "types": "./dist/types/main.d.ts",
+  "types": "./dist/types/index.d.ts",
+	"sideEffects": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -27,7 +29,9 @@
     "test": "vitest",
     "lint": "eslint src/**/*.{ts,vue}",
     "format": "prettier --write src/**/*.{ts,vue,css}",
-    "release": "standard-version"
+    "release": "standard-version",
+		"gen:types": "esno scripts/generate-declaration.ts",
+		"gen:scss": "esno scripts/generate-scss.ts"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
@@ -35,6 +39,7 @@
     "postcss-nested": "^6.0.0",
     "sass": "^1.56.2",
     "standard-version": "^9.5.0",
+    "vite-plugin-css-injected-by-js": "^2.1.1",
     "vite-plugin-executor": "workspace:*",
     "watch": "^1.0.2"
   }

@@ -1,12 +1,13 @@
-// GlobalComponents for Volar
+//Global Components
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    NxButton: typeof import('./dist/types/components/button')['NxButton']
-    NxCard: typeof import('./src/components/card')['NxCard']
-    NxCheckbox: typeof import('./src/components/checkbox')['NxCheckbox']
-    NxChip: typeof import('./src/components/chip')['NxChip']
-    NxDialog: typeof import('./dist/types/components/dialog')['NxDialog']
+		NxButton: typeof import('nocturnal-ui')['NxButton']
+    NxCard: typeof import('nocturnal-ui')['NxCard']
+    NxCheckbox: typeof import('nocturnal-ui')['NxCheckbox']
+    NxChip: typeof import('nocturnal-ui')['NxChip']
+    NxDialog: typeof import('nocturnal-ui')['NxDialog']
   }
 }
 
 export {}
+	

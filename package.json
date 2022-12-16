@@ -17,7 +17,9 @@
     "docs:serve": "pnpm --filter docs serve",
     "prepare": "husky install",
     "dev": "concurrently \"pnpm watch:core\" \"pnpm dev:play\"",
-		"build:vite-plugin-executor": "pnpm --filter vite-plugin-executor build"
+    "build:executor": "pnpm --filter vite-plugin-executor build",
+    "gen-types:ui": "pnpm --filter nocturnal-ui gen:types",
+    "gen-scss:ui": "pnpm --filter nocturnal-ui gen:scss"
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^3.2.0",
@@ -33,6 +35,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-unicorn": "^45.0.1",
     "eslint-plugin-vue": "^9.6.0",
+    "esno": "^0.16.3",
     "husky": "^8.0.0",
     "lint-staged": "^13.0.4",
     "prettier": "2.7.1",

@@ -14,6 +14,7 @@ importers:
       eslint-config-prettier: ^8.5.0
       eslint-plugin-unicorn: ^45.0.1
       eslint-plugin-vue: ^9.6.0
+      esno: ^0.16.3
       husky: ^8.0.0
       lint-staged: ^13.0.4
       prettier: 2.7.1
@@ -36,6 +37,7 @@ importers:
       eslint-config-prettier: 8.5.0_eslint@8.28.0
       eslint-plugin-unicorn: 45.0.1_eslint@8.28.0
       eslint-plugin-vue: 9.6.0_eslint@8.28.0
+      esno: 0.16.3
       husky: 8.0.2
       lint-staged: 13.0.4
       prettier: 2.7.1
@@ -45,38 +47,23 @@ importers:
       vitest: 0.24.3
       vue-tsc: 1.0.9_typescript@4.8.4
 
-  core:
-    specifiers:
-      autoprefixer: ^10.4.13
-      jsdom: ^20.0.1
-      postcss-nested: ^6.0.0
-      sass: ^1.56.2
-      standard-version: ^9.5.0
-      watch: ^1.0.2
-    devDependencies:
-      autoprefixer: 10.4.13
-      jsdom: 20.0.1
-      postcss-nested: 6.0.0
-      sass: 1.56.2
-      standard-version: 9.5.0
-      watch: 1.0.2
-
   docs:
     specifiers:
       nocturnal-ui: workspace:^0.0.0
       vitepress: 1.0.0-alpha.29
     dependencies:
-      nocturnal-ui: link:../core
+      nocturnal-ui: link:../packages/nocturnal-ui
     devDependencies:
       vitepress: 1.0.0-alpha.29
 
-  packages/core:
+  packages/nocturnal-ui:
     specifiers:
       autoprefixer: ^10.4.13
       jsdom: ^20.0.1
       postcss-nested: ^6.0.0
       sass: ^1.56.2
       standard-version: ^9.5.0
+      vite-plugin-css-injected-by-js: ^2.1.1
       vite-plugin-executor: workspace:*
       watch: ^1.0.2
     devDependencies:
@@ -85,6 +72,7 @@ importers:
       postcss-nested: 6.0.0
       sass: 1.56.2
       standard-version: 9.5.0
+      vite-plugin-css-injected-by-js: 2.1.1
       vite-plugin-executor: link:../vite-plugin-executor
       watch: 1.0.2
 
@@ -97,7 +85,7 @@ importers:
       nocturnal-ui: workspace:^0.0.0
       unplugin-icons: ^0.14.15
     dependencies:
-      nocturnal-ui: link:../core
+      nocturnal-ui: link:../packages/nocturnal-ui
     devDependencies:
       '@iconify-json/mdi': 1.1.37
       unplugin-icons: 0.14.15
@@ -307,6 +295,27 @@ packages:
       algoliasearch: 4.14.2
     transitivePeerDependencies:
       - '@algolia/client-search'
+    dev: true
+
+  /@esbuild-kit/cjs-loader/2.4.1:
+    resolution: {integrity: sha512-lhc/XLith28QdW0HpHZvZKkorWgmCNT7sVelMHDj3HFdTfdqkwEKvT+aXVQtNAmCC39VJhunDkWhONWB7335mg==}
+    dependencies:
+      '@esbuild-kit/core-utils': 3.0.0
+      get-tsconfig: 4.2.0
+    dev: true
+
+  /@esbuild-kit/core-utils/3.0.0:
+    resolution: {integrity: sha512-TXmwH9EFS3DC2sI2YJWJBgHGhlteK0Xyu1VabwetMULfm3oYhbrsWV5yaSr2NTWZIgDGVLHbRf0inxbjXqAcmQ==}
+    dependencies:
+      esbuild: 0.15.12
+      source-map-support: 0.5.21
+    dev: true
+
+  /@esbuild-kit/esm-loader/2.5.4:
+    resolution: {integrity: sha512-afmtLf6uqxD5IgwCzomtqCYIgz/sjHzCWZFvfS5+FzeYxOURPUo4QcHtqJxbxWOMOogKriZanN/1bJQE/ZL93A==}
+    dependencies:
+      '@esbuild-kit/core-utils': 3.0.0
+      get-tsconfig: 4.2.0
     dev: true
 
   /@esbuild/android-arm/0.15.12:
@@ -1900,6 +1909,13 @@ packages:
       - supports-color
     dev: true
 
+  /esno/0.16.3:
+    resolution: {integrity: sha512-6slSBEV1lMKcX13DBifvnDFpNno5WXhw4j/ff7RI0y51BZiDqEe5dNhhjhIQ3iCOQuzsm2MbVzmwqbN78BBhPg==}
+    hasBin: true
+    dependencies:
+      tsx: 3.12.1
+    dev: true
+
   /espree/9.4.0:
     resolution: {integrity: sha512-DQmnRpLj7f6TgN/NYb0MTzJXL+vJF9h3pHy4JhCIs3zwcgez8xmGg3sXHcEO97BrmO2OSvCwMdfdlyl+E9KjOw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -2125,6 +2141,10 @@ packages:
   /get-stream/6.0.1:
     resolution: {integrity: sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg==}
     engines: {node: '>=10'}
+    dev: true
+
+  /get-tsconfig/4.2.0:
+    resolution: {integrity: sha512-X8u8fREiYOE6S8hLbq99PeykTDoLVnxvF4DjWKJmz9xy2nNRdUcV8ZN9tniJFeKyTU3qnC9lL8n4Chd6LmVKHg==}
     dev: true
 
   /git-raw-commits/2.0.11:
@@ -3471,6 +3491,13 @@ packages:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
 
+  /source-map-support/0.5.21:
+    resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
+    dependencies:
+      buffer-from: 1.1.2
+      source-map: 0.6.1
+    dev: true
+
   /source-map/0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
@@ -3751,6 +3778,17 @@ packages:
       typescript: 4.8.4
     dev: true
 
+  /tsx/3.12.1:
+    resolution: {integrity: sha512-Rcg1x+rNe7qwlP8j7kx4VjP/pJo/V57k+17hlrn6a7FuQLNwkaw5W4JF75tYornNVCxkXdSUnqlIT8JY/ttvIw==}
+    hasBin: true
+    dependencies:
+      '@esbuild-kit/cjs-loader': 2.4.1
+      '@esbuild-kit/core-utils': 3.0.0
+      '@esbuild-kit/esm-loader': 2.5.4
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
   /type-check/0.3.2:
     resolution: {integrity: sha512-ZCmOJdvOWDBYJlzAoFkC+Q0+bUyEOS1ltgp1MGU03fqHG+dbi9tBFU2Rd9QKiDZFAYrhPh2JUf7rZRIuHRKtOg==}
     engines: {node: '>= 0.8.0'}
@@ -3888,6 +3926,12 @@ packages:
     dependencies:
       spdx-correct: 3.1.1
       spdx-expression-parse: 3.0.1
+    dev: true
+
+  /vite-plugin-css-injected-by-js/2.1.1:
+    resolution: {integrity: sha512-gjIG6iFWde32oRr/bK9CsfN+jdbura2y4GlDzeOiEm6py38ud8dXzFl9zwmHjOjZdr8XEgQ9TovzVGNzp47esw==}
+    peerDependencies:
+      vite: '>2.0.0-0'
     dev: true
 
   /vite/3.2.1:

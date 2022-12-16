@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path, { resolve } from 'path'
 import executor from 'vite-plugin-executor'
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 
 export default defineConfig({
 	plugins: [
@@ -10,6 +11,7 @@ export default defineConfig({
 			runOn: 'end',
 			script: 'vue-tsc --emitDeclarationOnly',
 		}),
+		cssInjectedByJsPlugin(),
 	],
 	resolve: {
 		alias: {
@@ -18,11 +20,10 @@ export default defineConfig({
 	},
 	build: {
 		lib: {
-			entry: resolve(__dirname, 'src/main.ts'),
+			entry: resolve(__dirname, 'src/index.ts'),
 			name: 'Nocturnal',
 			fileName: (format) => `nocturnal.${format}.js`,
 		},
-		cssCodeSplit: true,
 		rollupOptions: {
 			external: ['vue'],
 			output: {
