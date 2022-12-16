@@ -1,27 +1,13 @@
 <template>
 	<div>
 		<NxButton
-			variant="elevated"
+			variant="tonal"
 			@click="value = true"
 		>
 			Open Dialog
 		</NxButton>
-		<NxDialog v-model="value">
-			<template #title>Dialog Title</template>
-			<template #default>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas eligendi a
-				minima ratione consectetur consequatur harum nihil qui eius nam?
-			</template>
-			<template #actions>
-				<NxButton variant="text"> Agree </NxButton>
-				<NxButton
-					variant="text"
-					@click="value = false"
-				>
-					Cancel
-				</NxButton>
-			</template>
-		</NxDialog>
+		<NxChip>Blazing</NxChip>
+		<!-- <OAutocomplete> </OAutocomplete> -->
 	</div>
 </template>
 
