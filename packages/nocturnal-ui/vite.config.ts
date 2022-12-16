@@ -8,7 +8,6 @@ export default defineConfig({
 	plugins: [
 		vue(),
 		executor({
-			runOn: 'end',
 			script: 'vue-tsc --emitDeclarationOnly',
 		}),
 		cssInjectedByJsPlugin(),

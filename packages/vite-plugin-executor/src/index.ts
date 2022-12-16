@@ -1,26 +1,29 @@
-import type { Plugin } from 'vite'
+import type { Logger, Plugin } from 'vite'
 import { exec } from 'node:child_process'
-import { pluginOptions } from './types'
+import chalk from 'chalk'
 
-const dts = ({ runOn, script }: pluginOptions) => {
+interface Options {
+	script: string
+}
+
+const dts = ({ script }: Options) => {
+	const { blueBright, greenBright } = chalk
+	let logger: Logger
+	let startTime
+
 	const config: Plugin = {
 		name: 'vite-executor',
-	}
-
-	if (runOn === 'start') {
-		config.buildStart = () => {
+		configResolved(config) {
+			logger = config.logger
+		},
+		closeBundle() {
+			startTime = Date.now()
+			logger.info(blueBright(`\nRunning ${script}`))
 			exec(script)
-		}
+			logger.info(greenBright(`Completed in ${Date.now() - startTime}ms.\n`))
+		},
 	}
 
-	if (runOn === 'end') {
-		config.buildEnd = (error?: Error) => {
-			if (!error) {
-				console.log('Srunning')
-				exec(script)
-			}
-		}
-	}
 	return config
 }
 
