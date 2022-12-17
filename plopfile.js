@@ -15,17 +15,17 @@ export default function (
 			{
 				type: 'add',
 				path: 'packages/nocturnal-ui/src/components/{{name}}/index.ts',
-				templateFile: 'plop-templates/component/index.hbs',
+				templateFile: 'templates/component/index.hbs',
 			},
 			{
 				type: 'add',
 				path: 'packages/nocturnal-ui/src/components/{{name}}/{{name}}.vue',
-				templateFile: 'plop-templates/component/sfc.hbs',
+				templateFile: 'templates/component/sfc.hbs',
 			},
 			{
 				type: 'add',
 				path: 'packages/nocturnal-ui/src/components/{{name}}/{{name}}.scss',
-				templateFile: 'plop-templates/component/scss.hbs',
+				templateFile: 'templates/component/scss.hbs',
 			},
 		],
 	})
