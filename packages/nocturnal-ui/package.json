@@ -22,7 +22,7 @@
 	"sideEffects": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && pnpm tsc && pnpm gen",
     "watch": "vite build --watch",
     "preview": "vite preview",
     "tsc": "vue-tsc --emitDeclarationOnly",
@@ -30,8 +30,7 @@
     "lint": "eslint src/**/*.{ts,vue}",
     "format": "prettier --write src/**/*.{ts,vue,css}",
     "release": "standard-version",
-		"gen:types": "esno scripts/generate-declaration.ts",
-		"gen:scss": "esno scripts/generate-scss.ts"
+		"gen": "esno scripts"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

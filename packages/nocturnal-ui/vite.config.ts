@@ -1,20 +1,12 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import path, { resolve } from 'path'
-import executor from 'vite-plugin-executor'
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
+import { resolve } from 'path'
 
 export default defineConfig({
-	plugins: [
-		vue(),
-		executor({
-			script: 'vue-tsc --emitDeclarationOnly',
-		}),
-		cssInjectedByJsPlugin(),
-	],
+	plugins: [vue()],
 	resolve: {
 		alias: {
-			'~/': `${path.resolve(__dirname, 'src')}/`,
+			'~/': `${resolve(__dirname, 'src')}/`,
 		},
 	},
 	build: {
