@@ -1,0 +1,71 @@
+$list-color: 'primary', 'secondary', 'tertiary', 'error';
+
+.list-item {
+	list-style: none;
+	padding: 12px 16px;
+	font-size: 16px;
+	background-color: var(--surface);
+	display: flex;
+	gap: 0px 16px;
+	position: relative;
+
+	&__content {
+		flex: 1 1 auto;
+	}
+
+	&__title {
+		color: var(--on-surface);
+		font-size: 16px;
+		line-height: 24px;
+	}
+
+	&__text {
+		color: var(--on-surface-variant);
+		font-size: 14px;
+		line-height: 20px;
+		letter-spacing: 0.25px;
+	}
+
+	&__leading-icon,
+	&__trailing-icon {
+		color: var(--on-surface);
+	}
+
+	&--clickable {
+		cursor: pointer;
+
+		&:hover {
+			&::after {
+				opacity: 0.5;
+			}
+		}
+	}
+
+	&.list-item--selected {
+		cursor: default;
+
+		&::after {
+			opacity: 0.5;
+		}
+	}
+
+	@each $color in $list-color {
+		&.list-item--#{$color} {
+			&::after {
+				background-color: rgba(var(--#{$color}-rgb), 0.3);
+			}
+		}
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background-color: rgba(var(--on-surface-rgb), 0.3);
+		opacity: 0;
+		transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+	}
+}
