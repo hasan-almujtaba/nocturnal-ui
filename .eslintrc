@@ -18,7 +18,8 @@
 		"unicorn/prevent-abbreviations": [
 			"error",
 			{ "allowList": { "props": true } }
-		]
+		],
+		"unicorn/no-useless-undefined": "off"
 	},
 	"ignorePatterns": [
 		"**/*.config.cjs",
