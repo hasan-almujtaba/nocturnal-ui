@@ -56,9 +56,11 @@ const props = withDefaults(
 
 const attributes = useAttrs()
 
-const { listColor, listValue, updateListValue } = inject(
-	'listValue'
-) as ListProvider
+const { listColor, listValue, updateListValue } = inject('listValue', {
+	listColor: computed(() => undefined),
+	updateListValue: (value) => ({}),
+	listValue: computed(() => undefined),
+}) as ListProvider
 
 const listValueProvided = computed(() => listValue.value !== undefined)
 
