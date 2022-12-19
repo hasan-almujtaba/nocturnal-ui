@@ -7,6 +7,7 @@ import { NxChip } from './components/chip'
 import { NxDialog } from './components/dialog'
 import { NxListGroup } from './components/list-group'
 import { NxListItem } from './components/list-item'
+import { NxMenu } from './components/menu'
 
 declare module '@vue/runtime-core' {
 	export interface GlobalComponents {
@@ -17,6 +18,7 @@ declare module '@vue/runtime-core' {
 		NxDialog: typeof NxDialog
 		NxListGroup: typeof NxListGroup
 		NxListItem: typeof NxListItem
+		NxMenu: typeof NxMenu
 	}
 }
 	

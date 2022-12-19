@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
     NxDialog: typeof import('nocturnal-ui')['NxDialog']
     NxListGroup: typeof import('nocturnal-ui')['NxListGroup']
     NxListItem: typeof import('nocturnal-ui')['NxListItem']
+    NxMenu: typeof import('nocturnal-ui')['NxMenu']
 	}
 }
 
